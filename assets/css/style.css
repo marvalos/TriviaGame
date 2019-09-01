@@ -1,0 +1,74 @@
+.body-image {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+  }
+
+  .jumbotron {
+    padding-top: 15px;
+    padding-bottom: 0px;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-size: cover;
+    padding: 5em inherit;
+    text-align: center;
+    vertical-align: middle;
+    height: auto;
+    width: auto;
+  }
+  
+  .timerFormat {
+    margin-top: 0px;
+    margin-bottom: 20px;
+  }
+
+  .main-button-container {
+    margin-top: 20px;
+    max-width: 610px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+
+  
+  .answer:hover {
+    background: rgb(245, 241, 242);
+  }
+  
+  .answer {
+    padding-top: 0px;
+    color: black;
+    padding-left: 10px;
+    background-color: white;
+    border-radius: 2px;
+  }
+  
+  #headerImage {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+  }
+ 
+  .first-answer {
+    margin-top: 5px;
+  }
+  
+  .reset-button {
+    margin-top: 10px;
+  }
+  
+  body {
+    background-color: white;
+    font-size: 16px;
+    color: black;
+  }
+
+  .mainArea{
+    padding-top: 0px;
+    text-align: left;
+    background-color: white;
+  }
+
+  .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #4c4949 !important;
+  }
