@@ -29,7 +29,7 @@ $(document).ready(function () {
         "Given that a Raichu and a Diglett have the same stats and ability (not going to happen), who would do more damage to an identical enemy Pokemon when using Dig?",
         "Which Pokemon is NOT on Champion Blue's team no matter which starter you pick (Red/Blue Version)?"];
 
-    var answerArrayA = ["Chikorita",
+    var choiceA = ["Chikorita",
         "0",
         "Sing",
         "Marlon",
@@ -40,7 +40,7 @@ $(document).ready(function () {
         "Raichu cannot learn Dig",
         "Alakazam"];
 
-    var answerArrayB = ["Treecko",
+    var choiceB = ["Treecko",
         "2",
         "Blizzard",
         "Cress",
@@ -51,7 +51,7 @@ $(document).ready(function () {
         "Raichu",
         "Arcanine"];
 
-    var answerArrayC = ["Turtwig",
+    var choiceC = ["Turtwig",
         "3",
         "Dynamic Punch",
         "Wallace",
@@ -62,7 +62,7 @@ $(document).ready(function () {
         "Diglett",
         "Rhydon"];
 
-    var answerArrayD = ["Fletchling",
+    var choiceD = ["Fletchling",
         "4",
         "Smog",
         "Brycen",
@@ -111,11 +111,11 @@ $(document).ready(function () {
         incorrectResponse = 0;
         unansweredResponse = 0;
         triviaCounter = 30;
-        triviaQnA();
+        triviaQuestion;
         timerWrapper();
     }
 
-    function allDone() {
+    function results() {
         $(".mainArea").html("<p> " + "<img class='center-block body-image' src='assets/images/raichu-dig.png'>" + "</p>" +
             "<p class='text-center'>All done, here's how you did! </p><hr>" +
             "<p class='text-center'>Correct Answers: " + correctResponse + "</p>" +
@@ -130,7 +130,7 @@ $(document).ready(function () {
         function thirtySeconds() {
             if (triviaCounter === 0) {
                 clearInterval(theClock);
-                ranOutOfTime();
+                outOfTime();
             }
             if (triviaCounter > 0) {
                 triviaCounter--;
@@ -142,22 +142,22 @@ $(document).ready(function () {
     function wait() {
         if (currentQuestion < (questionArray.length - 1)) {
             currentQuestion++;
-            triviaQnA();
+            triviaQuestion;
             triviaCounter = 30;
             timerWrapper();
         }
         else {
-            allDone();
+            results();
         }
     }
 
-    function triviaQnA() {
+    function triviaQuestion {
         $(".mainArea").html("<p class='text-center timerFormat'>Time Remaining: <span class='timer'>30 Seconds</span></p><p class='text-left'>" +
             questionArray[currentQuestion] +
-            "</p><hr><p class='first-answer answer'>A. " + answerArrayA[currentQuestion] + "<hr></p>" +
-            "<p class='answer'>B. " + answerArrayB[currentQuestion] + "<hr></p>" +
-            "<p class='answer'>C. " + answerArrayC[currentQuestion] + "<hr></p>" +
-            "<p class='answer'>D. " + answerArrayD[currentQuestion] + "<hr></p>");
+            "</p><hr><p class='first-answer answer'>A. " + choiceA[currentQuestion] + "<hr></p>" +
+            "<p class='answer'>B. " + choiceB[currentQuestion] + "<hr></p>" +
+            "<p class='answer'>C. " + choiceC[currentQuestion] + "<hr></p>" +
+            "<p class='answer'>D. " + choiceD[currentQuestion] + "<hr></p>");
     }
 
     function correctChoice() {
@@ -176,7 +176,7 @@ $(document).ready(function () {
         setTimeout(wait, 5000);
     }
 
-    function ranOutOfTime() {
+    function outOfTime() {
         unansweredResponse++;
         $(".mainArea").html(
             "<p class='text-center timerFormat'>Time Remaining: <span class='timer'>" + triviaCounter + "  sec.</span></p>" +
@@ -217,7 +217,7 @@ $(document).ready(function () {
 
     $("body").on("click", ".start-button", function (event) {
         event.preventDefault();
-        triviaQnA();
+        triviaQuestion;
         timerWrapper();
         playAudio();
     });
