@@ -201,10 +201,25 @@ $(document).ready(function () {
         }
     });
 
+    var x = document.getElementById("myAudio");
+
+    function playAudio() {
+        x.play();
+    }
+
+    function pauseAudio() {
+        x.pause();
+    }
+
+    $("body").on("click", ".pause-button", function (event) {
+        pauseAudio();
+    });
+
     $("body").on("click", ".start-button", function (event) {
         event.preventDefault();
         triviaQnA();
         timerWrapper();
+        playAudio();
     });
 
     function startTrivia() {
@@ -212,7 +227,6 @@ $(document).ready(function () {
             "<p class='text-center'>So you want to be a Pokemon master? </p>" +
             "</p><img class='center-block body-' src='assets/images/pokeball.png'></p>" +
             "<a class='btn btn-primary btn-lg btn-block start-button main-button-container' href='#' role='button'>Start Trivia</a></p>");
-        audio.play();
     }
 
     startTrivia();
